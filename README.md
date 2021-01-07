@@ -4,4 +4,4 @@
 
 
 
-![KakaoBot](image/bot1.jpg){: width="10%" height="10%"}
+<img src='image/bot1.jpg' width="40%" height="40%">
