@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  height: 800px;
+  width: 100%;
+  background-color: rgba(178, 199, 218, 0.9);
+}
+
+#katalk-header {
+  height: 3.4%;
+  position: sticky;
+  background-color: #98abdf;
+}
+
+#navbar {
+  background: rgba(178, 199, 218, 0.9);
+  height: 5.5%;
+  position: sticky;
+  z-index: 999;
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__back .navbar__title .navbar__menu {
+  display: none;
+}
+
+.navbar__back {
+  background-color: blue;
+  transform: rotate(-180deg);
+}
+
+.navbar__back > img {
+  background-color: red;
+  width: 4.5%;
+}
+.navbar__title {
+  background-color: cadetblue;
+}
+
+.navbar__menu {
+  margin-left: auto;
+  background-color: wheat;
+}
