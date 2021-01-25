@@ -25,27 +25,43 @@ main {
 
 .navbar__container {
   display: flex;
-  align-items: center;
-}
-
-.navbar__back .navbar__title .navbar__menu {
-  display: none;
+  position: relative;
+  height: 100%;
 }
 
 .navbar__back {
-  background-color: blue;
+  position: relative;
+  height: 100%;
+  width: 40px;
+}
+
+.navbar__back > .arrow-icon {
+  height: 100%;
+  margin: 30 auto;
+  background: url("/image/right-arrow.svg") no-repeat;
   transform: rotate(-180deg);
 }
 
-.navbar__back > img {
-  background-color: red;
-  width: 4.5%;
-}
 .navbar__title {
   background-color: cadetblue;
 }
 
 .navbar__menu {
   margin-left: auto;
+  list-style-type: none;
+}
+
+.navbar__search {
   background-color: wheat;
+}
+
+.navbar__toggle {
+  cursor: pointer;
+}
+
+.navbar__toggle > .bar {
+  background-color: black;
+  width: 35px;
+  height: 3px;
+  margin: 3px 0;
 }
