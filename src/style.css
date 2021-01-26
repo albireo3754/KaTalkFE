@@ -24,21 +24,34 @@ main {
 }
 
 .navbar__container {
-  display: flex;
   position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
   height: 100%;
 }
 
+.navbar__back,
+.navbar__search,
+.navbar__toggle {
+  flex: 0, 0, 20px;
+  margin: 0, 20px;
+}
+
+.navbar__title {
+  flex-basis: 60%;
+}
 .navbar__back {
-  position: relative;
-  height: 100%;
-  width: 40px;
+  display: flex;
+  align-content: center;
+  width: 20px;
 }
 
 .navbar__back > .arrow-icon {
   height: 100%;
-  margin: 30 auto;
+  width: 100%;
   background: url("/image/right-arrow.svg") no-repeat;
+  border: 5px solid brown;
   transform: rotate(-180deg);
 }
 
@@ -46,22 +59,22 @@ main {
   background-color: cadetblue;
 }
 
-.navbar__menu {
-  margin-left: auto;
-  list-style-type: none;
-}
-
 .navbar__search {
+  height: 100%;
+  width: 20px;
+  background: url("/image/search.svg") no-repeat;
   background-color: wheat;
 }
 
 .navbar__toggle {
   cursor: pointer;
+  background-color: white;
+  border: 5px solid red;
 }
 
 .navbar__toggle > .bar {
   background-color: black;
-  width: 35px;
+  width: 20px;
   height: 3px;
   margin: 3px 0;
 }
