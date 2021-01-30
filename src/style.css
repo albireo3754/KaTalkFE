@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
 }
-
+html,
 body {
   height: 100%;
   width: 100%;
@@ -12,6 +12,9 @@ body {
 main {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #katalk-header {
@@ -20,9 +23,37 @@ main {
   background-color: #98abdf;
 }
 
+.bar-size {
+  height: 5.5%;
+  width: 100%;
+  padding: 20px;
+  /* border: 5px solid red; */
+}
+.chat-bar {
+  margin-top: auto;
+  background-color: rgba(255, 255, 255, 0.952);
+  background-size: cover;
+}
+
+.chat__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.chat__input {
+  margin-left: 20px;
+}
+
+.chat__input > p {
+  color: rgb(202, 202, 202);
+  font-weight: bold;
+}
+
 #navbar {
   background: rgba(178, 199, 218, 0.9);
-  height: 5.5%;
   position: sticky;
   z-index: 999;
   display: flex;
@@ -31,12 +62,17 @@ main {
   padding: 20px;
   /* border: 5px solid forestgreen; */
 }
-
-.navbar__container {
+.chat_position {
+  background-color: white;
+  background-size: cover;
+  margin-top: auto;
+}
+.container {
   position: relative;
+  height: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -91,4 +127,8 @@ main {
   width: 20px;
   height: 3px;
   margin: 3px 0;
+}
+
+footer {
+  background-color: rgb(226, 226, 226);
 }
