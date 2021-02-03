@@ -18,7 +18,7 @@ main {
 }
 
 p {
-  margin: 0 auto;
+  font-size: 0.8rem;
 }
 
 #katalk-header {
@@ -103,6 +103,11 @@ p {
   flex-direction: row;
 }
 
+.chat__time {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
 .chat__block {
   padding: 10px;
   background-color: #f7e600;
@@ -110,8 +115,9 @@ p {
   max-width: 250px;
   display: inline;
   font-size: 0.8rem;
-  margin-right: 0;
-  margin: 20px;
+  margin-left: 5px;
+  margin-right: 20px;
+  margin-bottom: 20px;
   box-shadow: 5px 5px 5px #999;
 }
 

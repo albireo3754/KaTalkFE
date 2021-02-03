@@ -9,6 +9,7 @@ function simpleText(s) {
   div.classList.add("chat-bar-right");
   const timep = document.createElement("p");
   timep.textContent = timeInf;
+  timep.classList.add("chat__time");
   const p = document.createElement("p");
   p.textContent = s;
   p.classList.add("chat__block");
