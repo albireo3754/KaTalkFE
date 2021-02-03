@@ -17,6 +17,10 @@ main {
   justify-content: space-between;
 }
 
+p {
+  margin: 0 auto;
+}
+
 #katalk-header {
   height: 3.4%;
   position: sticky;
@@ -94,7 +98,9 @@ main {
 }
 
 .chat-bar-right {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
 }
 
 .chat__block {
@@ -102,10 +108,11 @@ main {
   background-color: #f7e600;
   border-radius: 10px;
   max-width: 250px;
-  display: inline-block;
+  display: inline;
   font-size: 0.8rem;
   margin-right: 0;
   margin: 20px;
+  box-shadow: 5px 5px 5px #999;
 }
 
 .chat_background {

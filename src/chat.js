@@ -1,16 +1,20 @@
 onsubmit = "return getChampion()";
 const cham = document.getElementById("champion_input");
 function simpleText(s) {
+  let today = new Date();
+  let sliceEnd = today.toLocaleTimeString().lastIndexOf(":");
+  const timeInf = today.toLocaleTimeString().slice(0, sliceEnd);
+
   const div = document.createElement("div");
-  const p = document.createElement("p");
   div.classList.add("chat-bar-right");
+  const timep = document.createElement("p");
+  timep.textContent = timeInf;
+  const p = document.createElement("p");
   p.textContent = s;
   p.classList.add("chat__block");
-  document
-    .getElementById("chat")
-    .appendChild(div)
-    .appendChild(p)
-    .scrollIntoView(true);
+  const chatDoc = document.getElementById("chat").appendChild(div);
+  chatDoc.appendChild(timep);
+  chatDoc.appendChild(p).scrollIntoView(true);
 }
 
 function getChampion(e) {
