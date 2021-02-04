@@ -29,15 +29,16 @@
         </div>
       </div>
     </nav>
-    <div class="chat__background"></div>
+    <div class="chat__background" id="chat"></div>
     <div class="chat-bar bar-size">
       <div class="chat__container">
         <div class="plus"></div>
-        <form class="chat__input" name="champion" id="champion_input">
+        <form class="chat__input-form" name="champion" id="champion_input">
           <input
             type="text"
             name="champion"
-            id="champion"
+            id="chat__input"
+            autocomplete="off"
             placeholder="챗봇에게 메시지 보내기"
           />
           <!-- <p>챗봇에게 메시지 보내기</p> -->
@@ -52,30 +53,5 @@
       </div>
     </footer>
   </main>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script>
-    onsubmit = "return getChampion()";
-    const cham = document.getElementById("champion_input");
-    function getChampion(e) {
-      e.preventDefault();
-      const champName = document.getElementById("champion").value;
-      const data = { action: { params: { champion: champName } } };
-      console.log(JSON.stringify(data));
-      const req = new Request("http://34.64.118.225:3000/api/champion/", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          Host: "http://34.64.118.225:3000/api/champion/",
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      fetch(req)
-        .then((res) => res.json())
-        .then((json) => console.log(json))
-        .catch((json) => console.log(json));
-    }
-    cham.addEventListener("submit", getChampion);
-  </script>
+  <script type="module" src="./src/chat.js"></script>
 </body>

@@ -17,57 +17,14 @@ main {
   justify-content: space-between;
 }
 
+p {
+  font-size: 0.8rem;
+}
+
 #katalk-header {
   height: 3.4%;
   position: sticky;
   background-color: #98abdf;
-}
-
-.bar-size {
-  height: 5.5%;
-  width: 100%;
-  padding: 20px;
-  /* border: 5px solid red; */
-}
-.chat-bar {
-  margin-top: auto;
-  background-color: rgba(255, 255, 255, 0.952);
-  background-size: cover;
-}
-
-.chat__container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding-bottom: 20px;
-}
-
-.plus {
-  height: 20px;
-  width: 20px;
-  background: url("/image/add.svg") no-repeat;
-}
-
-.chat__input {
-  width: 100%;
-  margin-left: 20px;
-}
-
-input[type="text"] {
-  width: 100%;
-  height: 30px;
-  border: none;
-  background-color: rgb(0, 0, 0, 0);
-  font-weight: bold;
-}
-
-input[type="text"]:focus {
-  outline: none;
-}
-.chat__input ::placeholder {
-  color: rgb(202, 202, 202);
-  font-weight: bold;
 }
 
 #navbar {
@@ -75,13 +32,8 @@ input[type="text"]:focus {
   position: sticky;
   z-index: 999;
   padding: 20px;
-  /* border: 5px solid forestgreen; */
 }
-.chat_position {
-  background-color: white;
-  background-size: cover;
-  margin-top: auto;
-}
+
 .container {
   position: relative;
   height: 100%;
@@ -91,14 +43,6 @@ input[type="text"]:focus {
   align-items: center;
 }
 
-.foot__container {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 .navbar__back,
 .navbar__search,
 .navbar__toggle {
@@ -120,13 +64,8 @@ input[type="text"]:focus {
   height: 100%;
   width: 100%;
   background: url("/image/right-arrow.svg") no-repeat;
-  /* border: 5px solid brown; */
   transform: rotate(-180deg);
 }
-
-/* .navbar__title {
-  background-color: cadetblue;
-} */
 
 .navbar__search {
   height: 20px;
@@ -150,6 +89,116 @@ input[type="text"]:focus {
   width: 20px;
   height: 2px;
   margin: 6px 0;
+}
+
+.chat__background {
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.chat-bar-right {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  word-break: break-all;
+}
+
+.chat__time {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.chat__block__container {
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.chat__block__element {
+  padding: 10px;
+  background-color: #f7e600;
+  border-radius: 10px;
+  max-width: 256px;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  box-shadow: 1px 3px 5px #999;
+}
+
+## 수정 .chat__block__element:after {
+  content: "";
+  border-width: 0 20px 50px 0px;
+  border-style: solid;
+  border-color: transparent #5a8f00;
+  /* reduce the damage in FF3.0 */
+  display: block;
+  width: 0;
+}
+.chat_background {
+}
+
+.chat-bar {
+  margin-top: auto;
+  background-color: rgba(255, 255, 255, 0.952);
+  background-size: cover;
+}
+
+.bar-size {
+  height: 5.5%;
+  width: 100%;
+  padding: 20px;
+  /* border: 5px solid red; */
+}
+
+.chat__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.plus {
+  height: 20px;
+  width: 20px;
+  background: url("/image/add.svg") no-repeat;
+}
+
+.chat__input-form {
+  width: 100%;
+  margin-left: 20px;
+}
+
+.chat__input-form ::placeholder {
+  color: rgb(202, 202, 202);
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 30px;
+  border: none;
+  background-color: rgb(0, 0, 0, 0);
+  font-weight: bold;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+.chat_position {
+  background-color: white;
+  background-size: cover;
+  margin-top: auto;
+}
+
+.foot__container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 footer {
