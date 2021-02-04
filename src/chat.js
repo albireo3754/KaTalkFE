@@ -1,21 +1,45 @@
+import Time from "./time.js";
+
+const time = new Time();
+console.log(time.get());
+
 onsubmit = "return getChampion()";
 const cham = document.getElementById("champion_input");
-function simpleText(s) {
-  let today = new Date();
-  let sliceEnd = today.toLocaleTimeString().lastIndexOf(":");
-  const timeInf = today.toLocaleTimeString().slice(0, sliceEnd);
+function addChatElement(s) {
+  const p = document.createElement("p");
+  p.textContent = s;
+  p.classList.add("chat__block__element");
+  document
+    .getElementById("chat")
+    .lastElementChild.lastElementChild.appendChild(p);
+}
 
-  const div = document.createElement("div");
-  div.classList.add("chat-bar-right");
+function makeChatContainer(s) {
+  const timeInf = time.get();
+
+  let chat_line = document.createElement("div");
+  chat_line.classList.add("chat-bar-right");
+
   const timep = document.createElement("p");
   timep.textContent = timeInf;
   timep.classList.add("chat__time");
+
   const p = document.createElement("p");
   p.textContent = s;
-  p.classList.add("chat__block");
-  const chatDoc = document.getElementById("chat").appendChild(div);
-  chatDoc.appendChild(timep);
-  chatDoc.appendChild(p).scrollIntoView(true);
+  p.classList.add("chat__block__element");
+
+  const test = document.createElement("p");
+  test.textContent = s;
+  test.classList.add("chat__block__element");
+
+  const chat__block__container = document.createElement("div");
+  chat__block__container.classList.add("chat__block__container");
+  chat__block__container.appendChild(p);
+  chat__block__container.appendChild(test);
+
+  chat_line.appendChild(timep);
+  chat_line.appendChild(chat__block__container);
+  document.getElementById("chat").appendChild(chat_line);
 }
 
 function getChampion(e) {
@@ -23,7 +47,17 @@ function getChampion(e) {
   const champName = document.getElementById("chat__input").value;
   if (champName === "") return;
   document.getElementById("chat__input").value = null;
-  simpleText(champName);
+
+  const $chatLast = document.getElementById("chat").lastElementChild;
+  console.log(time.get());
+  let reg = new RegExp(time.get());
+  if ($chatLast && $chatLast.firstElementChild.textContent.match(reg)) {
+    addChatElement(champName);
+    //추가해야됨
+
+    return;
+  }
+  makeChatContainer(champName);
 
   //   const data = { action: { params: { champion: champName } } };
   //   console.log(JSON.stringify(data));

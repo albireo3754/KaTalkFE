@@ -101,6 +101,7 @@ p {
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
+  word-break: break-all;
 }
 
 .chat__time {
@@ -108,19 +109,31 @@ p {
   margin-bottom: 20px;
 }
 
-.chat__block {
+.chat__block__container {
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.chat__block__element {
   padding: 10px;
   background-color: #f7e600;
   border-radius: 10px;
-  max-width: 250px;
-  display: inline;
+  max-width: 256px;
   font-size: 0.8rem;
-  margin-left: 5px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  box-shadow: 5px 5px 5px #999;
+  margin-top: 5px;
+  box-shadow: 1px 3px 5px #999;
 }
 
+## 수정 .chat__block__element:after {
+  content: "";
+  border-width: 0 20px 50px 0px;
+  border-style: solid;
+  border-color: transparent #5a8f00;
+  /* reduce the damage in FF3.0 */
+  display: block;
+  width: 0;
+}
 .chat_background {
 }
 
