@@ -7,6 +7,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  min-width: 320px;
   background-color: rgba(178, 199, 218, 0.9);
 }
 main {
@@ -18,7 +19,7 @@ main {
 }
 
 p {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 #katalk-header {
@@ -63,7 +64,7 @@ p {
 .navbar__back > .arrow-icon {
   height: 100%;
   width: 100%;
-  background: url("./image/right-arrow.svg") no-repeat;
+  background: url("/image/right-arrow.svg") no-repeat;
   transform: rotate(-180deg);
 }
 
@@ -74,7 +75,7 @@ p {
 .navbar__search > .search-icon {
   height: 100%;
   width: 20px;
-  background: url("./image/search.svg") no-repeat;
+  background: url("/image/search.svg") no-repeat;
   /* background-color: wheat; */
 }
 
@@ -104,20 +105,43 @@ p {
   word-break: break-all;
 }
 
+.chat-bar-left {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  word-break: break-all;
+}
+
 .chat__time {
   margin-top: auto;
   margin-bottom: 20px;
 }
 
-.chat__block__container {
+.chat__block__container-right {
   margin-bottom: 20px;
   margin-left: 10px;
   margin-right: 20px;
 }
 
-.chat__block__element {
+.chat__block__container-left {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.chat__block__element-right {
   padding: 10px;
   background-color: #f7e600;
+  border-radius: 10px;
+  max-width: 256px;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  box-shadow: 1px 3px 5px #999;
+}
+
+.chat__block__element-left {
+  padding: 10px;
+  background-color: white;
   border-radius: 10px;
   max-width: 256px;
   font-size: 0.8rem;
