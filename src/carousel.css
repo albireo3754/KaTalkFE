@@ -1,8 +1,46 @@
+.carousel {
+  width: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.carousel__bar-left {
+  display: flex;
+  position: relative;
+}
+
+.carousel__time {
+  display: block;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.carousel__scroll-box {
+  border: 5px solid rgb(204, 204, 204);
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 44%;
+  left: 95%;
+  z-index: 1000;
+  visibility: hidden;
+}
+
 .basicCard {
   width: 193px;
   height: 260px;
   background-color: white;
   border-radius: 5px;
+  flex: none;
+  margin-left: 20px;
 }
 
 .card__img {
@@ -55,4 +93,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 1172px) {
+  .carousel__bar-left {
+    display: flex;
+    flex-direction: column;
+  }
+  .chat__block__container-left {
+    margin-bottom: 10px;
+  }
+  .carousel__time {
+    font-size: 0.7rem;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  .carousel__scroll-box {
+    visibility: visible;
+  }
 }
