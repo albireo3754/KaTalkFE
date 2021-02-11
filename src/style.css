@@ -98,14 +98,15 @@ p {
   width: 100%;
 }
 
-.chat-bar-right {
+.chat__bar-right {
+  clear: both;
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
   word-break: break-all;
 }
 
-.chat-bar-left {
+.chat__bar-left {
   display: flex;
   justify-content: flex-end;
   flex-direction: row-reverse;
@@ -149,14 +150,6 @@ p {
   box-shadow: 1px 3px 5px #999;
 }
 
-/* .chat__block__element {
-  content: "";
-  border-width: 0 20px 50px 0px;
-  border-style: solid;
-  border-color: transparent #5a8f00;
-  display: block;
-  width: 0;
-} */
 .chat_background {
 }
 

@@ -16,4 +16,11 @@ export default class Time {
     let sliceEnd = today.toLocaleTimeString().lastIndexOf(":");
     this.timeInf = today.toLocaleTimeString().slice(0, sliceEnd);
   }
+
+  getTimeElement() {
+    const timep = document.createElement("p");
+    timep.textContent = this.get();
+    timep.classList.add("chat__time");
+    return timep;
+  }
 }

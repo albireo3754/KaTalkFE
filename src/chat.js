@@ -18,7 +18,7 @@ function makeChatContainer(s, position) {
   const timeInf = time.get();
 
   let chat_line = document.createElement("div");
-  chat_line.classList.add(`chat-bar-${position}`);
+  chat_line.classList.add(`chat__bar-${position}`);
 
   const timep = document.createElement("p");
   timep.textContent = timeInf;
@@ -34,20 +34,10 @@ function makeChatContainer(s, position) {
 
   chat_line.appendChild(timep);
   chat_line.appendChild(chat__block__container);
-  document.getElementById("chat").appendChild(chat_line);
+  document.getElementById("chat").appendChild(chat_line).scrollIntoView();
 }
 
-//todo param 수정
-function makeBotChat(position, data) {
-  const timeInf = time.get();
-
-  let chat_line = document.createElement("div");
-  chat_line.classList.add(`chat-bar-${position}`);
-
-  const timep = document.createElement("p");
-  timep.textContent = timeInf;
-  timep.classList.add("chat__time");
-
+function getBasicCard(data) {
   const basicCard = document.createElement("div");
   basicCard.classList.add("basicCard");
 
@@ -79,14 +69,39 @@ function makeBotChat(position, data) {
   basicCard.appendChild(cardImg);
   basicCard.appendChild(cardInf);
   basicCard.appendChild(cardButtonContainer);
+  return basicCard;
+}
+function makeScrollButton(scrollContainer) {
+  const carousel__scroll = document.createElement("button");
+  carousel__scroll.textContent = ">";
+  carousel__scroll.classList.add("carousel__scroll-box");
+  const scrollTo = () => {
+    scrollContainer.scrollLeft += 213;
+  };
+  carousel__scroll.addEventListener("click", scrollTo);
+
+  return carousel__scroll;
+}
+function makeCarousel(dataArray, position) {
+  const timeP = document.createElement("p");
+  timeP.textContent = time.get();
+  timeP.classList.add("carousel__time");
+
   const chat__block__container = document.createElement("div");
   chat__block__container.classList.add(`chat__block__container-${position}`);
-  chat__block__container.appendChild(basicCard);
+  chat__block__container.classList.add("carousel");
+  dataArray.forEach((element) => chat__block__container.appendChild(element));
 
-  chat_line.appendChild(timep);
+  const carousel__scroll_button = makeScrollButton(chat__block__container);
+  chat__block__container.appendChild(carousel__scroll_button);
+
+  let chat_line = document.createElement("div");
+  chat_line.classList.add(`carousel__bar-${position}`);
   chat_line.appendChild(chat__block__container);
+  chat_line.appendChild(timeP);
   document.getElementById("chat").appendChild(chat_line).scrollIntoView();
 }
+
 function getChampion(e) {
   e.preventDefault();
   const champName = document.getElementById("chat__input").value;
@@ -120,8 +135,12 @@ function getChampion(e) {
   const output = fetch(req)
     .then((res) => res.json())
     .then((result) => {
-      const data = result.template.outputs[0].carousel.items[0];
-      makeBotChat("left", data);
+      const output = result.template.outputs[0];
+
+      makeCarousel(
+        output.carousel.items.map((data) => getBasicCard(data)),
+        "left"
+      );
     })
     .catch((error) => console.log("fail", error));
   console.log(output, "아지르");
