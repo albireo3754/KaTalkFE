@@ -98,7 +98,7 @@ p {
   width: 100%;
 }
 
-.chat__bar-right {
+.chat__line-right {
   clear: both;
   display: flex;
   justify-content: flex-end;
@@ -106,7 +106,7 @@ p {
   word-break: break-all;
 }
 
-.chat__bar-left {
+.chat__line-left {
   display: flex;
   justify-content: flex-end;
   flex-direction: row-reverse;

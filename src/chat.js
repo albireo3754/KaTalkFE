@@ -1,10 +1,8 @@
 import Time from "./time.js";
-
+import ChatLine from "./ChatLine.js";
 const time = new Time();
-console.log(time.get());
 
 onsubmit = "return getChampion()";
-const cham = document.getElementById("champion_input");
 function addChatElement(s) {
   const p = document.createElement("p");
   p.textContent = s;
@@ -12,29 +10,6 @@ function addChatElement(s) {
   document
     .getElementById("chat")
     .lastElementChild.lastElementChild.appendChild(p);
-}
-
-function makeChatContainer(s, position) {
-  const timeInf = time.get();
-
-  let chat_line = document.createElement("div");
-  chat_line.classList.add(`chat__bar-${position}`);
-
-  const timep = document.createElement("p");
-  timep.textContent = timeInf;
-  timep.classList.add("chat__time");
-
-  const p = document.createElement("p");
-  p.textContent = s;
-  p.classList.add(`chat__block__element-${position}`);
-
-  const chat__block__container = document.createElement("div");
-  chat__block__container.classList.add(`chat__block__container-${position}`);
-  chat__block__container.appendChild(p);
-
-  chat_line.appendChild(timep);
-  chat_line.appendChild(chat__block__container);
-  document.getElementById("chat").appendChild(chat_line).scrollIntoView();
 }
 
 function getBasicCard(data) {
@@ -102,24 +77,21 @@ function makeCarousel(dataArray, position) {
   document.getElementById("chat").appendChild(chat_line).scrollIntoView();
 }
 
+function deleteChatInput() {
+  document.getElementById("chat__input").value = null;
+}
 function getChampion(e) {
   e.preventDefault();
   const champName = document.getElementById("chat__input").value;
-  if (champName === "") return;
-  document.getElementById("chat__input").value = null;
+  if (champName.length === 0) return;
+  deleteChatInput();
 
-  // todo ajax 만들때
-  // const $chatLast = document.getElementById("chat").lastElementChild;
-  // console.log(time.get());
-  // let reg = new RegExp(time.get());
-  // if ($chatLast && $chatLast.firstElementChild.textContent.match(reg)) {
-  //   addChatElement(champName);
-  //   //추가해야됨
-
-  //   return;
-  // }
-  makeChatContainer(champName, "right");
-  // makeChatContainer(champName, "left");
+  const userChat = new ChatLine(time, "right", champName);
+  userChat.setChatLine();
+  document
+    .getElementById("chat")
+    .appendChild(userChat.getChatLine())
+    .scrollIntoView();
 
   const data = { action: { params: { champion: champName } } };
   const req = new Request("http://34.64.118.225:3000/api/champion/", {
@@ -143,6 +115,7 @@ function getChampion(e) {
       );
     })
     .catch((error) => console.log("fail", error));
-  console.log(output, "아지르");
 }
+
+const cham = document.getElementById("champion_input");
 cham.addEventListener("submit", getChampion);
