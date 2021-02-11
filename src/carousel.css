@@ -96,7 +96,7 @@
 }
 
 @media (max-width: 1172px) {
-  .carousel__bar-left {
+  .carousel__line {
     display: flex;
     flex-direction: column;
   }
