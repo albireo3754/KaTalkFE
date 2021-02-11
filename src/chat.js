@@ -1,16 +1,17 @@
 import Time from "./time.js";
+import BotChatLine from "./BotChatLine.js";
 import ChatLine from "./ChatLine.js";
 const time = new Time();
 
 onsubmit = "return getChampion()";
-function addChatElement(s) {
-  const p = document.createElement("p");
-  p.textContent = s;
-  p.classList.add("chat__block__element");
-  document
-    .getElementById("chat")
-    .lastElementChild.lastElementChild.appendChild(p);
-}
+// function addChatElement(s) {
+//   const p = document.createElement("p");
+//   p.textContent = s;
+//   p.classList.add("chat__block__element");
+//   document
+//     .getElementById("chat")
+//     .lastElementChild.lastElementChild.appendChild(p);
+// }
 
 function getBasicCard(data) {
   const basicCard = document.createElement("div");
@@ -46,36 +47,6 @@ function getBasicCard(data) {
   basicCard.appendChild(cardButtonContainer);
   return basicCard;
 }
-function makeScrollButton(scrollContainer) {
-  const carousel__scroll = document.createElement("button");
-  carousel__scroll.textContent = ">";
-  carousel__scroll.classList.add("carousel__scroll-box");
-  const scrollTo = () => {
-    scrollContainer.scrollLeft += 213;
-  };
-  carousel__scroll.addEventListener("click", scrollTo);
-
-  return carousel__scroll;
-}
-function makeCarousel(dataArray, position) {
-  const timeP = document.createElement("p");
-  timeP.textContent = time.get();
-  timeP.classList.add("carousel__time");
-
-  const chat__block__container = document.createElement("div");
-  chat__block__container.classList.add(`chat__block__container-${position}`);
-  chat__block__container.classList.add("carousel");
-  dataArray.forEach((element) => chat__block__container.appendChild(element));
-
-  const carousel__scroll_button = makeScrollButton(chat__block__container);
-  chat__block__container.appendChild(carousel__scroll_button);
-
-  let chat_line = document.createElement("div");
-  chat_line.classList.add(`carousel__bar-${position}`);
-  chat_line.appendChild(chat__block__container);
-  chat_line.appendChild(timeP);
-  document.getElementById("chat").appendChild(chat_line).scrollIntoView();
-}
 
 function deleteChatInput() {
   document.getElementById("chat__input").value = null;
@@ -108,11 +79,16 @@ function getChampion(e) {
     .then((res) => res.json())
     .then((result) => {
       const output = result.template.outputs[0];
-
-      makeCarousel(
-        output.carousel.items.map((data) => getBasicCard(data)),
-        "left"
+      const botChat = new BotChatLine(
+        time,
+        "left",
+        output.carousel.items.map((data) => getBasicCard(data))
       );
+      botChat.setChatLine();
+      document
+        .getElementById("chat")
+        .appendChild(botChat.getChatLine())
+        .scrollIntoView();
     })
     .catch((error) => console.log("fail", error));
 }

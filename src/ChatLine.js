@@ -1,5 +1,5 @@
 class ChatLine {
-  constructor(time, position, content) {
+  constructor(time, position, content = null) {
     this.time = time;
     this.position = position;
     this.content = content;

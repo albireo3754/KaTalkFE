@@ -12,7 +12,7 @@
   display: none; /* Chrome, Safari, Opera*/
 }
 
-.carousel__bar-left {
+.carousel__line {
   display: flex;
   position: relative;
 }
