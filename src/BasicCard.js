@@ -1,3 +1,5 @@
+import ListCard from "./ListCard.js";
+
 class BasicCard {
   constructor({ data, subdata }) {
     this.data = data;
@@ -84,7 +86,6 @@ class BasicCard {
     } else if (data.contexts[this.order].params.itemKey) {
       dataType += "item";
     }
-    console.log(data);
     const req = new Request(`http://18.181.100.134:3000/api/${dataType}/`, {
       method: "POST",
       mode: "cors",
@@ -97,7 +98,14 @@ class BasicCard {
     });
     const output = fetch(req)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        const listCard = new ListCard(data.template.outputs[0].listCard);
+        listCard.set();
+        document
+          .getElementById("chat")
+          .appendChild(listCard.get())
+          .scrollIntoView();
+      });
   }
 
   clickActionCardButton(data) {
