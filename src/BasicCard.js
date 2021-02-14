@@ -1,6 +1,35 @@
 class BasicCard {
-  constructor(data) {
+  constructor({ data, subdata }) {
     this.data = data;
+    this.order = subdata.name[subdata.name.length - 1] - 1;
+    this.subdata = [
+      {
+        params: {
+          runeDetail: { value: JSON.stringify(subdata.params.runeDetail) },
+          runeName: { value: JSON.stringify(subdata.params.runeName) },
+          statPerk: { value: JSON.stringify(subdata.params.statPerk) },
+        },
+      },
+      {
+        params: {
+          itemKey: { value: JSON.stringify(subdata.params.itemKey) },
+        },
+      },
+      {
+        params: {
+          skill: { value: JSON.stringify(subdata.params.skill) },
+        },
+      },
+    ];
+
+    this.requestJsonTemplate = {
+      action: {
+        params: {
+          sys_number_ordinal: `{"amount": ${this.order + 1}}`,
+        },
+      },
+      contexts: [{}, {}, {}, {}, {}],
+    };
     this.set();
   }
 
@@ -31,11 +60,13 @@ class BasicCard {
     this.cardImg.style.backgroundImage = `url(${this.data.thumbnail.imageUrl})`;
   }
 
-  produceCardButton(buttonData) {
-    const button = document.createElement("div");
+  produceCardButton(buttonLabel, buttonfunction) {
+    const button = document.createElement("button");
+
     button.classList.add("card__button-element");
+    button.addEventListener("click", buttonfunction);
     const buttonText = document.createElement("p");
-    buttonText.textContent = buttonData.label;
+    buttonText.textContent = buttonLabel;
     button.appendChild(buttonText);
     return button;
   }
@@ -44,11 +75,46 @@ class BasicCard {
     container.appendChild(button);
   }
 
+  fetchButtonRequest(data) {
+    let dataType = "";
+    if (data.contexts[this.order].params.runeName) {
+      dataType += "rune";
+    } else if (data.contexts[this.order].params.skill) {
+      dataType += "skill";
+    } else if (data.contexts[this.order].params.itemKey) {
+      dataType += "item";
+    }
+    console.log(data);
+    const req = new Request(`http://18.181.100.134:3000/api/${dataType}/`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        Host: `http://18.181.100.134:3000/api/${dataType}/`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const output = fetch(req)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
+
+  clickActionCardButton(data) {
+    return () => {
+      this.requestJsonTemplate.contexts[this.order] = data;
+      this.fetchButtonRequest(this.requestJsonTemplate);
+    };
+  }
+
   makeCardButtonContainer() {
     this.cardButtonContainer = document.createElement("div");
     this.cardButtonContainer.classList.add("card__button-container");
-    for (let buttonData of this.data.buttons) {
-      let button = this.produceCardButton(buttonData);
+    for (let i = 0; i < this.data.buttons.length; i++) {
+      let button = this.produceCardButton(
+        this.data.buttons[i].label,
+        this.clickActionCardButton(this.subdata[i])
+      );
       this.insertButtonToContainer(button, this.cardButtonContainer);
     }
   }
