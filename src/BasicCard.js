@@ -4,6 +4,10 @@ class BasicCard {
   constructor({ data, subdata }) {
     this.data = data;
     this.order = subdata.name[subdata.name.length - 1] - 1;
+    this.outputTypeFunction = {
+      listCard: this.makeListCard,
+      simpleText: this.makeSimpleText,
+    };
     this.subdata = [
       {
         params: {
@@ -77,6 +81,19 @@ class BasicCard {
     container.appendChild(button);
   }
 
+  makeSimpleText() {
+    console.log("makeSimpleText");
+  }
+
+  makeListCard(listData) {
+    const listCard = new ListCard(listData);
+    listCard.set();
+    document
+      .getElementById("chat")
+      .appendChild(listCard.get())
+      .scrollIntoView();
+  }
+
   fetchButtonRequest(data) {
     let dataType = "";
     if (data.contexts[this.order].params.runeName) {
@@ -99,12 +116,12 @@ class BasicCard {
     const output = fetch(req)
       .then((res) => res.json())
       .then((data) => {
-        const listCard = new ListCard(data.template.outputs[0].listCard);
-        listCard.set();
-        document
-          .getElementById("chat")
-          .appendChild(listCard.get())
-          .scrollIntoView();
+        console.log(data.template.outputs);
+        data.template.outputs.forEach((output) => {
+          for (let [outputType, outputData] of Object.entries(output)) {
+            this.outputTypeFunction[outputType](outputData);
+          }
+        });
       });
   }
 
