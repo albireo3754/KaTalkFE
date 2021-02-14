@@ -1,3 +1,4 @@
+const test;
 class BasicCard {
   constructor({ data, subdata }) {
     this.data = data;
