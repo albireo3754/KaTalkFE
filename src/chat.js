@@ -34,11 +34,15 @@ function getChampion(e) {
   const output = fetch(req)
     .then((res) => res.json())
     .then((result) => {
-      const output = result.template.outputs[0];
+      const suboutput = result.context.values;
+      console.log(suboutput);
+      const output = result.template.outputs[0].carousel.items;
       const botChat = new BotChatLine(
         time,
         "left",
-        output.carousel.items.map((data) => new BasicCard(data).get())
+        output.map((data, idx) =>
+          new BasicCard({ data, subdata: suboutput[idx] }).get()
+        )
       );
       botChat.setChatLine();
       document
