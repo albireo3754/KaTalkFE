@@ -1,5 +1,7 @@
-class ListCard {
+import Time from "./Time.js";
+class ListCard extends Time {
   constructor({ header: { title }, items }) {
+    super();
     this.listLine = document.createElement("div");
     this.listLine.classList.add("list__line");
     this.header = title;

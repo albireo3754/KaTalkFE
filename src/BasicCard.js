@@ -1,12 +1,14 @@
 import ListCard from "./ListCard.js";
-
+import SimpleTextCard from "./SimpleTextCard.js";
 class BasicCard {
   constructor({ data, subdata }) {
+    this.chattingBackground = document.getElementById("chat");
+    console.log(this.chattingBackground);
     this.data = data;
     this.order = subdata.name[subdata.name.length - 1] - 1;
     this.outputTypeFunction = {
       listCard: this.makeListCard,
-      simpleText: this.makeSimpleText,
+      simpleText: this.makeSimpleTextCard,
     };
     this.subdata = [
       {
@@ -81,18 +83,17 @@ class BasicCard {
     container.appendChild(button);
   }
 
-  makeSimpleText() {
-    console.log("makeSimpleText");
-  }
+  makeSimpleTextCard = (textData) => {
+    const simpleText = new SimpleTextCard(textData);
+    simpleText.set();
+    this.chattingBackground.appendChild(simpleText.get()).scrollIntoView();
+  };
 
-  makeListCard(listData) {
+  makeListCard = (listData) => {
     const listCard = new ListCard(listData);
     listCard.set();
-    document
-      .getElementById("chat")
-      .appendChild(listCard.get())
-      .scrollIntoView();
-  }
+    this.chattingBackground.appendChild(listCard.get()).scrollIntoView();
+  };
 
   fetchButtonRequest(data) {
     let dataType = "";
