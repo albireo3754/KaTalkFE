@@ -1,4 +1,4 @@
-import Time from "./time.js";
+import Time from "./Time.js";
 import BotChatLine from "./BotChatLine.js";
 import ChatLine from "./ChatLine.js";
 import BasicCard from "./BasicCard.js";
