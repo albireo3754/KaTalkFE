@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <head>
   <title>Katalk</title>
-  <link rel="stylesheet" href="src/style.css" />
+  <link rel="stylesheet" href="src/css/style.css" />
+  <link rel="stylesheet" href="src/css/carousel.css" />
+  <link rel="stylesheet" href="src/css/listcard.css" />
   <meta lang="Ko" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -29,12 +31,20 @@
         </div>
       </div>
     </nav>
+    <div class="chat__background" id="chat"></div>
     <div class="chat-bar bar-size">
       <div class="chat__container">
         <div class="plus"></div>
-        <div class="chat__input">
-          <p>챗봇에게 메시지 보내기</p>
-        </div>
+        <form class="chat__input-form" name="champion" id="champion_input">
+          <input
+            type="text"
+            name="champion"
+            id="chat__input"
+            autocomplete="off"
+            placeholder="챗봇에게 메시지 보내기"
+          />
+          <!-- <p>챗봇에게 메시지 보내기</p> -->
+        </form>
       </div>
     </div>
     <footer class="bar-size">
@@ -45,4 +55,5 @@
       </div>
     </footer>
   </main>
+  <script type="module" src="./src/chat.js"></script>
 </body>

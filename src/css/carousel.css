@@ -1,0 +1,111 @@
+.carousel {
+  width: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.carousel__line {
+  display: flex;
+  position: relative;
+}
+
+.carousel__time {
+  display: block;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.carousel__scroll-box {
+  border: 5px solid rgb(204, 204, 204);
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 44%;
+  left: 95%;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+.basicCard {
+  width: 193px;
+  height: 260px;
+  background-color: white;
+  border-radius: 5px;
+  flex: none;
+  margin-left: 20px;
+}
+
+.card__img {
+  width: 100%;
+  height: 96px;
+  /* background-image: url("http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png"); */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.card__inf {
+  height: 33px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.card__inf-title {
+  display: block;
+}
+
+.card__inf-Description {
+  display: block;
+  color: gray;
+}
+
+.card__button-container {
+  height: 107px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.card__button-element {
+  width: 100%;
+  height: 33px;
+  background-color: #f1f1f152;
+  border: 0.5px solid rgba(216, 208, 253, 0.377);
+  text-align: center;
+  border-radius: 5px;
+  font-size: 0.3rem;
+  font-weight: 500;
+  font-family: "고딕";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1172px) {
+  .carousel__line {
+    flex-direction: column;
+  }
+  .carousel__time {
+    font-size: 0.7rem;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  .carousel__scroll-box {
+    visibility: visible;
+  }
+}
