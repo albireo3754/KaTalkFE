@@ -2,7 +2,9 @@ import Time from "./Time.js";
 import BotChatLine from "./BotChatLine.js";
 import ChatLine from "./ChatLine.js";
 import BasicCard from "./BasicCard.js";
+import Bot from "./Bot.js";
 const time = new Time();
+const bot = new Bot("Pro builder");
 
 function deleteChatInput() {
   document.getElementById("chat__input").value = null;
@@ -31,7 +33,7 @@ function getChampion(e) {
     },
     body: JSON.stringify(data),
   });
-  const output = fetch(req)
+  fetch(req)
     .then((res) => res.json())
     .then((result) => {
       const suboutput = result.context.values;
@@ -40,10 +42,13 @@ function getChampion(e) {
       const botChat = new BotChatLine(
         time,
         "left",
-        output.map((data, idx) =>
-          new BasicCard({ data, subdata: suboutput[idx] }).get()
-        )
+        output.map((data, idx) => {
+          const basiccard = new BasicCard({ data, subdata: suboutput[idx] });
+          basiccard.setBot(bot);
+          return basiccard.get();
+        })
       );
+      botChat.setBot(bot);
       botChat.setChatLine();
       document
         .getElementById("chat")

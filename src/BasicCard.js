@@ -41,6 +41,9 @@ class BasicCard {
     this.set();
   }
 
+  setBot(bot) {
+    this.bot = bot;
+  }
   makeCardInfTitle() {
     this.cardInfTitle = document.createElement("p");
     this.cardInfTitle.classList.add("card__inf-title");
@@ -114,15 +117,14 @@ class BasicCard {
       },
       body: JSON.stringify(data),
     });
-    const output = fetch(req)
+    fetch(req)
       .then((res) => res.json())
       .then((data) => {
         this.cardResponseLine = document.createElement("div");
         this.cardResponseLine.classList.add("card__line");
+        this.cardResponseLine.appendChild(this.bot.getName());
         const time = new Time();
         this.timeP = time.getTimeElement();
-
-        this.cardRes;
         data.template.outputs.forEach((output, idx) => {
           if (idx == data.template.outputs.length - 1) {
             for (let [outputType, outputData] of Object.entries(output)) {
@@ -142,9 +144,12 @@ class BasicCard {
             }
           }
         });
-        this.chattingBackground
-          .appendChild(this.cardResponseLine)
-          .scrollIntoView();
+        this.cardPlusBot = document.createElement("div");
+        this.cardPlusBot.classList.add("card__plus__bot");
+        this.cardPlusBot.appendChild(this.bot.getImg());
+        this.cardPlusBot.appendChild(this.cardResponseLine);
+
+        this.chattingBackground.appendChild(this.cardPlusBot).scrollIntoView();
       });
   }
 
