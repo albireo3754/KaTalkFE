@@ -97,11 +97,7 @@
 
 @media (max-width: 1172px) {
   .carousel__line {
-    display: flex;
     flex-direction: column;
-  }
-  .chat__block__container-left {
-    margin-bottom: 10px;
   }
   .carousel__time {
     font-size: 0.7rem;

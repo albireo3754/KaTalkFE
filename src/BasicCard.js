@@ -1,9 +1,9 @@
 import ListCard from "./ListCard.js";
 import SimpleTextCard from "./SimpleTextCard.js";
+import Time from "./Time.js";
 class BasicCard {
   constructor({ data, subdata }) {
     this.chattingBackground = document.getElementById("chat");
-    console.log(this.chattingBackground);
     this.data = data;
     this.order = subdata.name[subdata.name.length - 1] - 1;
     this.outputTypeFunction = {
@@ -86,13 +86,13 @@ class BasicCard {
   makeSimpleTextCard = (textData) => {
     const simpleText = new SimpleTextCard(textData);
     simpleText.set();
-    this.chattingBackground.appendChild(simpleText.get()).scrollIntoView();
+    return simpleText.get();
   };
 
   makeListCard = (listData) => {
     const listCard = new ListCard(listData);
     listCard.set();
-    this.chattingBackground.appendChild(listCard.get()).scrollIntoView();
+    return listCard.get();
   };
 
   fetchButtonRequest(data) {
@@ -118,11 +118,34 @@ class BasicCard {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.template.outputs);
-        data.template.outputs.forEach((output) => {
-          for (let [outputType, outputData] of Object.entries(output)) {
-            this.outputTypeFunction[outputType](outputData);
+        this.cardResponseLine = document.createElement("div");
+        this.cardResponseLine.classList.add("card__line");
+        const time = new Time();
+        this.timeP = time.getTimeElement();
+
+        this.cardRes;
+        data.template.outputs.forEach((output, idx) => {
+          if (idx == data.template.outputs.length - 1) {
+            for (let [outputType, outputData] of Object.entries(output)) {
+              const cardLastElement = document.createElement("div");
+              cardLastElement.classList.add("card__last");
+              cardLastElement.appendChild(
+                this.outputTypeFunction[outputType](outputData)
+              );
+              cardLastElement.appendChild(this.timeP);
+              this.cardResponseLine.appendChild(cardLastElement);
+            }
+          } else {
+            for (let [outputType, outputData] of Object.entries(output)) {
+              this.cardResponseLine.appendChild(
+                this.outputTypeFunction[outputType](outputData)
+              );
+            }
           }
         });
+        this.chattingBackground
+          .appendChild(this.cardResponseLine)
+          .scrollIntoView();
       });
   }
 

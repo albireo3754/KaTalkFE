@@ -1,9 +1,7 @@
-import Time from "./Time.js";
-class ListCard extends Time {
+class ListCard {
   constructor({ header: { title }, items }) {
-    super();
-    this.listLine = document.createElement("div");
-    this.listLine.classList.add("list__line");
+    this.listCard = document.createElement("div");
+    this.listCard.classList.add("list__card");
     this.header = title;
     this.items = items;
   }
@@ -15,14 +13,18 @@ class ListCard extends Time {
     const listDescription = document.createElement("p");
     listDescription.classList.add("card__inf-Description");
     listDescription.textContent = description;
+    const listInfContainer = document.createElement("div");
+    listInfContainer.classList.add("card__inf-container");
+    listInfContainer.appendChild(listTitle);
+    listInfContainer.appendChild(listDescription);
+
     const listImage = document.createElement("div");
-    listImage.classList.add("card__img");
+    listImage.classList.add("list__card__img");
     listImage.style.backgroundImage = `url(${imageUrl})`;
 
     const listElement = document.createElement("div");
     listElement.classList.add("list__element");
-    listElement.appendChild(listTitle);
-    listElement.appendChild(listDescription);
+    listElement.appendChild(listInfContainer);
     listElement.appendChild(listImage);
     return listElement;
   }
@@ -47,13 +49,13 @@ class ListCard extends Time {
 
   set() {
     this.makeListTitle();
-    this.listLine.appendChild(this.listHead);
+    this.listCard.appendChild(this.listHead);
     this.makeListElementContainer();
-    this.listLine.appendChild(this.listElementContainer);
+    this.listCard.appendChild(this.listElementContainer);
   }
 
   get() {
-    return this.listLine;
+    return this.listCard;
   }
 }
 
