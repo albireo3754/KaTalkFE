@@ -126,7 +126,6 @@ p {
 
 .chat__block__container-left {
   margin-bottom: 20px;
-  margin-left: 20px;
   margin-right: 10px;
 }
 
@@ -141,6 +140,7 @@ p {
 }
 
 .chat__block__element-left {
+  margin-left: 20px;
   padding: 10px;
   background-color: white;
   border-radius: 5px;

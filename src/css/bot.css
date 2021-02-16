@@ -1,0 +1,17 @@
+.bot__img {
+  margin-left: 20px;
+  width: 38px;
+  height: 38px;
+
+  border-radius: 16px;
+}
+
+.bot__name {
+  font-size: 0.9rem;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.card__plus__bot {
+  display: flex;
+}

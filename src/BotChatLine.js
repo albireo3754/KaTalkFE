@@ -1,9 +1,12 @@
 import ChatLine from "./ChatLine.js";
-
 class BotChatLine extends ChatLine {
   constructor(time, position, elements) {
     super(time, position);
     this.elements = elements;
+  }
+
+  setBot(bot) {
+    this.bot = bot;
   }
 
   makeHorizontalScrollButton() {
@@ -28,7 +31,7 @@ class BotChatLine extends ChatLine {
       `chat__block__container-${this.position}`
     );
     this.chatBlockContainer.classList.add("carousel");
-
+    console.log(this.elements);
     this.elements.forEach((element) =>
       this.chatBlockContainer.appendChild(element)
     );
@@ -36,7 +39,6 @@ class BotChatLine extends ChatLine {
     this.makeHorizontalScrollButton();
     this.chatBlockContainer.appendChild(this.horizontalScrollButton);
   }
-
   makeChatLine() {
     this.chatLine = document.createElement("div");
     this.chatLine.classList.add("carousel__line");
@@ -44,9 +46,13 @@ class BotChatLine extends ChatLine {
 
   setChatLine() {
     this.makeChatLine();
-
+    this.chatLine.appendChild(this.bot.getImg());
     this.makeChatBlockContainer();
-    this.chatLine.appendChild(this.chatBlockContainer);
+    this.chatNamePlusContainer = document.createElement("div");
+    this.chatNamePlusContainer.classList.add("chat__name__plus__container");
+    this.chatNamePlusContainer.appendChild(this.bot.getName());
+    this.chatNamePlusContainer.appendChild(this.chatBlockContainer);
+    this.chatLine.appendChild(this.chatNamePlusContainer);
 
     this.makeTimeContent();
     this.chatLine.appendChild(this.timeP);

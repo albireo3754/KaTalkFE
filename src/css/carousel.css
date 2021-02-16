@@ -14,6 +14,7 @@
 
 .carousel__line {
   display: flex;
+  flex-wrap: nowrap;
   position: relative;
 }
 
@@ -95,15 +96,17 @@
   align-items: center;
 }
 
+.chat__name__plus__container {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+}
+
 @media (max-width: 1172px) {
-  .carousel__line {
-    flex-direction: column;
-  }
   .carousel__time {
     font-size: 0.7rem;
     margin-left: auto;
     margin-right: 20px;
-    margin-bottom: 10px;
   }
   .carousel__scroll-box {
     visibility: visible;
