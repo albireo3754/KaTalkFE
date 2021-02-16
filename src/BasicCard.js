@@ -117,7 +117,6 @@ class BasicCard {
     const output = fetch(req)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.template.outputs);
         this.cardResponseLine = document.createElement("div");
         this.cardResponseLine.classList.add("card__line");
         const time = new Time();
