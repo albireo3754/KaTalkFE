@@ -1,8 +1,8 @@
-import Time from "./Time.js";
-import BotChatLine from "./BotChatLine.js";
-import ChatLine from "./ChatLine.js";
-import BasicCard from "./BasicCard.js";
-import Bot from "./Bot.js";
+import Time from "/src/Time.js";
+import BotChatLine from "/src/BotChatLine.js";
+import ChatLine from "/src/ChatLine.js";
+import BasicCard from "/src/BasicCard.js";
+import Bot from "/src/Bot.js";
 const time = new Time();
 const bot = new Bot("Pro builder");
 
