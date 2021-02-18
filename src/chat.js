@@ -23,11 +23,11 @@ function getChampion(e) {
     .scrollIntoView();
 
   const data = { action: { params: { champion: champName } } };
-  const req = new Request("http://18.181.100.134:3000/api/champion/", {
+  const req = new Request("https://katalkapi.ddns.net:3000/api/champion/", {
     method: "POST",
     mode: "cors",
     headers: {
-      Host: "http://18.181.100.134:3000/api/champion/",
+      Host: "https://katalkapi.ddns.net:3000/api/champion/",
       Accept: "application/json",
       "Content-Type": "application/json",
     },

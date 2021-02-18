@@ -107,16 +107,19 @@ class BasicCard {
     } else if (data.contexts[this.order].params.itemKey) {
       dataType += "item";
     }
-    const req = new Request(`http://18.181.100.134:3000/api/${dataType}/`, {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        Host: `http://18.181.100.134:3000/api/${dataType}/`,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const req = new Request(
+      `https://katalkapi.ddns.net:3000/api/${dataType}/`,
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          Host: `https://katalkapi.ddns.net:3000/api/${dataType}/`,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
     fetch(req)
       .then((res) => res.json())
       .then((data) => {
