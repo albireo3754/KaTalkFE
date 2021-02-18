@@ -64,7 +64,7 @@ p {
 .navbar__back > .arrow-icon {
   height: 100%;
   width: 100%;
-  background: url("./image/right-arrow.svg") no-repeat;
+  background: url("/image/right-arrow.svg") no-repeat;
   transform: rotate(-180deg);
 }
 
@@ -75,7 +75,7 @@ p {
 .navbar__search > .search-icon {
   height: 100%;
   width: 20px;
-  background: url("./image/search.svg") no-repeat;
+  background: url("/image/search.svg") no-repeat;
   /* background-color: wheat; */
 }
 
@@ -172,7 +172,7 @@ p {
 .plus {
   height: 20px;
   width: 20px;
-  background: url("./image/add.svg") no-repeat;
+  background: url("/image/add.svg") no-repeat;
 }
 
 .chat__input-form {
