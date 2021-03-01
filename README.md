@@ -23,8 +23,8 @@
 
 ## Upcoming
 
--[] 기초 카카오톡 클론코딩
--[] Refactoring
--[] React로 
+[] 기초 카카오톡 클론코딩
+[] Refactoring
+[] React로 
 
 
