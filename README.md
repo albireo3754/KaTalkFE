@@ -17,14 +17,15 @@
 ## Tech Stack
 
 - HTML + CSS + JS
-- React(예정)
+
 
 ## Progress
 
+- React
+- TypeScript
+
 ## Upcoming
 
-[] 기초 카카오톡 클론코딩
-[] Refactoring
-[] React로 
+
 
 
