@@ -21,8 +21,8 @@
 
 ## Progress
 
-- React
-- TypeScript
+- React를 적용하기
+- TypeScript를 사용하기.
 
 ## Upcoming
 
