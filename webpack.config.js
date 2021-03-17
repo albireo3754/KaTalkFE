@@ -1,6 +1,7 @@
 const path = require('path');
 const cleanWebpackPlugin = require('clean-webpack-plugin');
-const miniCssExtractPlugin = require('mini-css-extract-plugin');
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components')
+  .default;
 const uglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
@@ -27,15 +28,13 @@ module.exports = {
           loader: 'ts-loader',
           options: {
             getCustomTransformers: () => ({
-              before: [require('react-refresh-typescript')()],
+              before: [
+                require('react-refresh-typescript')(),
+                createStyledComponentsTransformer(),
+              ],
             }),
           },
         },
-      },
-      {
-        test: /\.(css)$/,
-        exclude: /node_modules/,
-        use: [miniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.()$/, // 이미지 확장자 regExp
