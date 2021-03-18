@@ -37,14 +37,15 @@ module.exports = {
         },
       },
       {
-        test: /\.()$/, // 이미지 확장자 regExp
+        test: /\.svg$/, // 이미지 확장자 regExp
         exclude: /node_modules/,
         use: {
           loader: 'url-loader',
           options: {
             name: '[name].[ext]?[hash]', // 파일명 또는 파일해쉬값
             publicPath: './dist/', // 빌드 후 limit가 넘는 파일 위치
-            limit: 10000, // 10000byte 제한
+            limit: 20000, // 10000byte 제한
+            esModule: false,
           },
         },
       },
@@ -70,3 +71,15 @@ module.exports = {
   },
 };
 console.log(isDevelopment);
+// {
+//   test: /\.svg$/, // 이미지 확장자 regExp
+//   exclude: /node_modules/,
+//   use: {
+//     loader: 'url-loader',
+//     options: {
+//       name: '[name].[ext]?[hash]', // 파일명 또는 파일해쉬값
+//       publicPath: './dist/', // 빌드 후 limit가 넘는 파일 위치
+//       limit: 20000, // 10000byte 제한
+//     },
+//   },
+// },
