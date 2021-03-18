@@ -55,6 +55,7 @@
     "immer": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "styled-icons": "^10.29.0"
   }
 }
