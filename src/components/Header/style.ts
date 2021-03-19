@@ -5,6 +5,7 @@ import { ArrowBack, Search } from '@styled-icons/boxicons-regular';
 export const NavContainerS = styled.div`
   ${FlexContainer}
   float: right;
+  margin-right: 20px;
 `;
 const iconSize = css`
   width: 20px;
@@ -13,13 +14,13 @@ const iconSize = css`
 
 const margin = css`
   margin-left: 20px;
-  margin-right: 20px;
 `;
 
 export const HeaderContainerS = styled.header`
   display: flex;
   align-items: center;
-  height: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 `;
 export const LeftArrowIcon = styled(ArrowBack)`
   ${iconSize};

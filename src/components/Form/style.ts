@@ -6,7 +6,7 @@ export const ChatInputS = styled.input.attrs({
   type: 'text',
 })`
   width: 100%;
-  height: 30px;
+  height: 100%;
   border: none;
   font-weight: bold;
   ::placeholder {
@@ -21,12 +21,15 @@ export const ChatInputS = styled.input.attrs({
 export const ChatMenuIcon = styled(PlusSquare)`
   height: 60%;
   margin: 10px;
+  color: rgb(202, 202, 202);
 `;
 export const ChatContainerS = styled.div`
   background-color: rgba(255, 255, 255, 0.952);
-  height: 30px;
+  height: 40px;
   display: flex;
   align-items: center;
   float: bottom;
-  position: bottom;
+  position: sticky;
+  width: 100%;
+  bottom: 0;
 `;
