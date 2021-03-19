@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { FlexContainer } from '../Katalk';
 // import { ArrowLeftShort, Search } from '@styled-icons/bootstrap';
 import { ArrowBack, Search } from '@styled-icons/boxicons-regular';
-export const NavContainer = styled.div`
+export const NavContainerS = styled.div`
   ${FlexContainer}
   float: right;
 `;
@@ -16,7 +16,7 @@ const margin = css`
   margin-right: 20px;
 `;
 
-export const HeaderContainer = styled.header`
+export const HeaderContainerS = styled.header`
   display: flex;
   align-items: center;
   height: 40px;
@@ -29,17 +29,17 @@ export const SearchIcon = styled(Search)`
   ${iconSize}
   ${margin};
 `;
-export const ToggleBarContainer = styled.div`
+export const ToggleBarContainerS = styled.div`
   ${margin};
 `;
-export const ToggleBar = styled.div`
+export const ToggleBarS = styled.div`
   background-color: black;
   width: 20px;
   height: 2px;
   margin: 6px 0;
 `;
 
-export const NameBar = styled.div`
+export const NameBarS = styled.div`
   flex-grow: 5;
   ${margin};
 `;

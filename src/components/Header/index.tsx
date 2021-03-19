@@ -1,47 +1,47 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
-  NameBar,
-  NavContainer,
+  NameBarS,
+  NavContainerS,
   LeftArrowIcon,
   SearchIcon,
-  ToggleBarContainer,
-  ToggleBar,
-  HeaderContainer,
+  ToggleBarContainerS,
+  ToggleBarS,
+  HeaderContainerS,
 } from './style';
 
-const LeftArrow: React.SFC = () => {
+const LeftArrow: FC = () => {
   return <LeftArrowIcon />;
 };
 
-const Search: React.SFC = () => {
+const Search: FC = () => {
   return <SearchIcon></SearchIcon>;
 };
 
-const Toggle: React.SFC = () => {
+const Toggle: FC = () => {
   return (
-    <ToggleBarContainer>
+    <ToggleBarContainerS>
       {Array(3)
         .fill(1)
         .map((_) => (
-          <ToggleBar />
+          <ToggleBarS />
         ))}
-    </ToggleBarContainer>
+    </ToggleBarContainerS>
   );
 };
 
-const Name: React.SFC<{ name: string }> = ({ name }) => {
-  return <NameBar>{name}</NameBar>;
+const Name: FC<{ name: string }> = ({ name }) => {
+  return <NameBarS>{name}</NameBarS>;
 };
 
-export const Header: React.SFC = () => {
+export const Header: FC = () => {
   return (
-    <HeaderContainer>
+    <HeaderContainerS>
       <LeftArrow></LeftArrow>
       <Name name="롤 프로빌더"></Name>
-      <NavContainer>
+      <NavContainerS>
         <Search></Search>
         <Toggle />
-      </NavContainer>
-    </HeaderContainer>
+      </NavContainerS>
+    </HeaderContainerS>
   );
 };

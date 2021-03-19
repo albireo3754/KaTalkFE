@@ -1,7 +1,7 @@
 export * from './css';
 import React from 'react';
 import { Header } from '../Header';
-import { Input } from '../Input';
+import { Form } from '../Form';
 import { Chat } from '../Chat';
 import { createGlobalStyle } from 'styled-components';
 
@@ -27,7 +27,7 @@ export const Katalk = () => {
     <>
       <Header />
       <Chat />
-      <Input />
+      <Form />
       <GlobalStyle />
     </>
   );
