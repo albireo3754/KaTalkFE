@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 import { PlusSquare } from '@styled-icons/bootstrap';
 
-export const ChatInputS = styled.input.attrs({
-  placeholder: '챗봇에게 메시지 보내기',
-  type: 'text',
-})`
+export const ChatInputS = styled.input`
   width: 100%;
   height: 100%;
   border: none;
@@ -32,4 +29,8 @@ export const ChatContainerS = styled.div`
   position: sticky;
   width: 100%;
   bottom: 0;
+`;
+
+export const ChatFormS = styled.form`
+  width: 100%;
 `;
