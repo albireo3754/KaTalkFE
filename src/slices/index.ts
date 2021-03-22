@@ -1,6 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchData, ChatContent, ContentFetched, UserChat } from '../utils';
-import { RootState } from '../store';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { fetchData, ChatContent } from '../utils';
+import { RootState, AppThunk } from '../store';
+import React from 'react';
 interface ChatContentState {
   chatContents: ChatContent[];
 }
@@ -9,11 +10,12 @@ const initialState: ChatContentState = {
   chatContents: [],
 };
 
-export const getResponse = createAsyncThunk<ContentFetched, UserChat>(
+export const getResponse = createAsyncThunk<ChatContent, string>(
   'input/chat',
-  async (chat, thunkAPI) => {
+  async (chat: string, thunkAPI) => {
     const chatContent = await fetchData(chat);
-    return chatContent;
+    console.log(JSON.stringify(chatContent));
+    return JSON.stringify(chatContent);
   }
 );
 
@@ -27,10 +29,7 @@ export const inputSlice = createSlice({
   },
   extraReducers: {
     [getResponse.fulfilled.type]: (state: ChatContentState, { payload }) => {
-      const {
-        template: { outputs },
-      } = payload;
-      state.chatContents.push(outputs[0]);
+      state.chatContents.push(payload);
     },
   },
 });
