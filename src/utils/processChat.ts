@@ -1,18 +1,10 @@
-// export interface ChatContents {
+export type ChatContent = string;
+
+// export interface ChatContent {
 //   version?: string;
 // }
 
-export interface ContentFetched {
-  version: string;
-}
-
-export interface Carousel {
-  carousel: any;
-}
-export type UserChat = string;
-export type ChatContent = UserChat | Carousel;
-
-export async function fetchData(champName: string): Promise<ContentFetched> {
+export async function fetchData(champName: string): Promise<ChatContent> {
   try {
     const data = { action: { params: { champion: champName } } };
     const req = new Request('http://18.181.100.134:3000/api/champion/', {
