@@ -1,7 +1,10 @@
 import React, { FC, memo, useRef, useEffect } from 'react';
-import { UserChatS, UserChatContainerS } from './style';
+import { UserChatS } from './style';
+import { UserChatContainerS } from '../Container';
 import { Time } from '../Time';
-export const SimpleTextUser: FC<{ content: string }> = memo(({ content }) => {
+import { UserChat } from '../../../types';
+
+export const SimpleTextUser: FC<{ content: UserChat }> = memo(({ content }) => {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     console.log(ref.current && ref.current.scrollIntoView());
