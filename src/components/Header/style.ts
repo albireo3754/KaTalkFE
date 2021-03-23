@@ -21,6 +21,7 @@ export const HeaderContainerS = styled.header`
   align-items: center;
   padding-top: 5px;
   padding-bottom: 5px;
+  height: 8.4%;
 `;
 export const LeftArrowIcon = styled(ArrowBack)`
   ${iconSize};

@@ -6,12 +6,25 @@ import { Chat } from '../Chat';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+      font-family: "NotoSansKR";
+      src: url("../fonts/notoSansKR/NotoSans-Bold.woff") format("woff");
+      font-style: normal;
+  }
+
+  @font-face {
+    font-family: "NotoSansKR";
+    src: url("../fonts/openSans/OpenSans-SemiBold.woff") format("woff");
+    unicode-range: U+0020-007E;
+    font-style: normal;
+  }
   html{
     height: 100%;
     width: 100%;
     min-width: 320px;
     min-height: 320px;
   }
+    
   body{
 
   }
