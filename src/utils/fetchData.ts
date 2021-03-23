@@ -1,16 +1,6 @@
-// export interface ChatContents {
-//   version?: string;
-// }
-
 export interface ContentFetched {
   version: string;
 }
-
-export interface Carousel {
-  carousel: any;
-}
-export type UserChat = string;
-export type ChatContent = UserChat | Carousel;
 
 export async function fetchData(champName: string): Promise<ContentFetched> {
   try {

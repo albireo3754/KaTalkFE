@@ -6,6 +6,7 @@ export const ChatInputS = styled.input`
   height: 100%;
   border: none;
   font-weight: bold;
+  font-size: 1rem;
   ::placeholder {
     color: rgb(202, 202, 202);
     font-weight: bold;
@@ -22,7 +23,7 @@ export const ChatMenuIcon = styled(PlusSquare)`
 `;
 export const ChatContainerS = styled.div`
   background-color: rgba(255, 255, 255, 0.952);
-  height: 40px;
+  height: 8.4%;
   display: flex;
   align-items: center;
   float: bottom;
@@ -33,4 +34,5 @@ export const ChatContainerS = styled.div`
 
 export const ChatFormS = styled.form`
   width: 100%;
+  height: 90%;
 `;

@@ -1,4 +1,4 @@
-import React, { FC, useState, useCallback } from 'react';
+import React, { FC, useState } from 'react';
 import { ChatInputS, ChatMenuIcon, ChatContainerS, ChatFormS } from './style';
 import { inputChat, getResponse } from '../../slices';
 import { useDispatch } from 'react-redux';
