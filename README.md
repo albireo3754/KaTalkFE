@@ -30,10 +30,16 @@
 - ReduxToolkit의 createAsyncThunk를 이용해 비동기 통신 관리하기.
 
 (HTML + CSS + JS)
+
+
 ![version1](https://user-images.githubusercontent.com/40790219/112468665-e4a6e900-8dab-11eb-8fc6-3c0422d6d22b.gif)
+
 (React로 빌드 후 첫 화면)
+
 ![background](https://user-images.githubusercontent.com/40790219/112468676-e83a7000-8dab-11eb-9ff6-73310482cd26.gif)
+
 (비동기 통신 후 데이터 가공해서 화면에 렌더링)
+
 ![Ajax](https://user-images.githubusercontent.com/40790219/112468632-da84ea80-8dab-11eb-9b3f-92189366e369.gif)
 
 
