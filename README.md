@@ -12,20 +12,29 @@
 > 3. 최종적으로 리액트를 이용해서 컴포넌트 단위로 재설계하여 본다.
 > +@ 깃허브의 각종 기능들을 사용해보면서 깃허브에 익숙해진다.
 
-<img src='image/bot1.jpg' width="40%" height="40%">
 
 ## Tech Stack
 
-- HTML + CSS + JS
+- ~~HTML + CSS + JS~~
+- HTML
+- Styled Component(CSS)
+- React
+- TS
+- Redux + Redux Toolkit (상태 관리)
 
-
-## Progress
+## Progress (2021 - 03 - 25![Ajax]
 
 - React를 적용하기
 - TypeScript를 사용하기.
+- Redux를 이용해 State관리 하기
+- ReduxToolkit의 createAsyncThunk를 이용해 비동기 통신 관리하기.
+
+(https://user-images.githubusercontent.com/40790219/112468209-55013a80-8dab-11eb-9508-20d922929015.gif)
 
 ## Upcoming
 
+- 함수의 재사용성 증가 시켜보기
+- 새로운 디자인 추가 하기
 
 
 
