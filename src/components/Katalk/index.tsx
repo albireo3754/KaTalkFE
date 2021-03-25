@@ -24,9 +24,9 @@ const GlobalStyle = createGlobalStyle`
     min-width: 320px;
     min-height: 320px;
   }
-    
+  
   body{
-
+    
   }
   #root{
     height: 100%;

@@ -1,10 +1,9 @@
 import React, { FC, memo } from 'react';
 import {
-  ButtonS,
   ButtonContainerS,
   BasicCardS,
-  TitleS,
-  DescriptionS,
+  TitleP,
+  DescriptionP,
   ThumbNailsS,
 } from './style';
 import { BasicCardContent } from '../../../types';
@@ -12,18 +11,26 @@ import { Button } from '../Button';
 
 export const BasicCard: FC<{ content: BasicCardContent }> = memo(
   ({ content }) => {
-    console.log(content.buttons);
+    console.log(content);
     return (
       <BasicCardS>
         {/* header */}
 
         <ThumbNailsS img={content.thumbnail.imageUrl} />
-        <TitleS>{content.title}</TitleS>
-        <DescriptionS>{content.description}</DescriptionS>
+        <TitleP>{content.title}</TitleP>
+        <DescriptionP>{content.description}</DescriptionP>
         {/* button */}
         <ButtonContainerS>
-          {content.buttons.map((button) => {
-            return <Button content={button} type="BasicCard" />;
+          {content.buttons.map((button, i) => {
+            return (
+              i !== content.buttons.length - 1 && (
+                <Button
+                  content={button}
+                  clickContent={content.buttons[content.buttons.length - 1]}
+                  type="BasicCard"
+                />
+              )
+            );
           })}
         </ButtonContainerS>
       </BasicCardS>
