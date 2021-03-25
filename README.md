@@ -29,7 +29,10 @@
 - Redux를 이용해 State관리 하기
 - ReduxToolkit의 createAsyncThunk를 이용해 비동기 통신 관리하기.
 
-(https://user-images.githubusercontent.com/40790219/112468209-55013a80-8dab-11eb-9508-20d922929015.gif)
+![version1](https://user-images.githubusercontent.com/40790219/112468665-e4a6e900-8dab-11eb-8fc6-3c0422d6d22b.gif)
+![background](https://user-images.githubusercontent.com/40790219/112468676-e83a7000-8dab-11eb-9ff6-73310482cd26.gif)
+![Ajax](https://user-images.githubusercontent.com/40790219/112468632-da84ea80-8dab-11eb-9b3f-92189366e369.gif)
+
 
 ## Upcoming
 
