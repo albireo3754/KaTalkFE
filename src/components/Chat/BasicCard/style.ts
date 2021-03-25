@@ -18,14 +18,15 @@ export const BasicCardS = styled.div`
   flex-direction: column;
   background-color: rgba(252, 252, 252);
   border-radius: 10px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   font-size: 0.8rem;
   box-shadow: 1px 3px 5px #999;
   text-align: left;
   margin-top: auto;
+  margin-right: 10px;
 `;
 
-export const TitleS = styled.p`
+export const TitleP = styled.p`
   font-size: 1rem;
   font-weight: 600;
   margin-left: 10px;
@@ -33,7 +34,7 @@ export const TitleS = styled.p`
   font-family: 'NotoSansKR';
 `;
 
-export const DescriptionS = styled.p`
+export const DescriptionP = styled.p`
   justify-content: space-between;
   margin-left: 10px;
   margin-top: 5px;

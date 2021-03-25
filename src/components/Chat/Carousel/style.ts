@@ -6,7 +6,6 @@ export const CarouselS = styled.div`
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
-  flex-wrap: nowrap;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   /* ::-webkit-scrollbar {
