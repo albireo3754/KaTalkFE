@@ -4,6 +4,7 @@
     "allowSyntheticDefaultImports": true, // export default 를 export 한 값들을 가지는 객체로 설정
     "module": "esnext", // ???
     "moduleResolution": "node", // ???
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "target": "es5", // ???
     "lib": [

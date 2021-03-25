@@ -1,8 +1,8 @@
 import React, { FC, memo, useRef, useEffect } from 'react';
-import { UserChatS } from './style';
+import { UserChatS, BotChatS } from './style';
 import { UserChatContainerS } from '../Container';
 import { Time } from '../Time';
-import { UserChat } from '../../../types';
+import { UserChat, SimpleText } from '../../../types';
 
 export const SimpleTextUser: FC<{ content: UserChat }> = memo(({ content }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,3 +17,9 @@ export const SimpleTextUser: FC<{ content: UserChat }> = memo(({ content }) => {
     </UserChatContainerS>
   );
 });
+
+export const SimpleTextBot: FC<{ content: SimpleText }> = memo(
+  ({ content }) => {
+    return <BotChatS>{content.simpleText}</BotChatS>;
+  }
+);

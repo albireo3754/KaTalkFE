@@ -1,8 +1,20 @@
 import styled from 'styled-components';
 
 export const UserChatS = styled.div`
-  padding: 10px;
+  padding: 8px;
   background-color: rgba(249, 230, 0, 0.85);
+  border-radius: 10px;
+  max-width: 256px;
+  font-family: 'NotoSansKR';
+  font-size: 0.8rem;
+  box-shadow: 1px 3px 5px #999;
+  text-align: left;
+  margin-top: auto;
+`;
+
+export const BotChatS = styled.div`
+  padding: 8px;
+  background-color: rgba(252, 252, 252, 1);
   border-radius: 10px;
   max-width: 256px;
   font-family: 'NotoSansKR';
